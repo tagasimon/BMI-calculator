@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'input_page.dart';
+import 'components/input_page.dart';
+import 'screens/results_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
           primaryColor: Color(0xFF0A0E21),
           scaffoldBackgroundColor: Color(0xFF0A0E21)),
-      home: InputPage(),
+      // home: InputPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => InputPage(),
+        '/calculate': (context) => CalculatePage(),
+      },
     );
   }
 }

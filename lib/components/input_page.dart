@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
-import 'constants.dart';
+import '../constants.dart';
 import 'round_icon_button.dart';
+import 'bottom_button.dart';
 
 enum Gender { MALE, FEMALE }
 
@@ -16,7 +17,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender gender;
   int height = 180;
-  int weight = 10;
+  int weight = 20;
   int age = 1;
 
   @override
@@ -203,13 +204,16 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            height: kBottomContainerHeight,
-            width: double.infinity,
-            color: Colors.pinkAccent,
-            margin: EdgeInsets.only(top: 10.0),
-            child: Text("CALCULATE"),
-          )
+          BottomButton(
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/calculate',
+                // arguments: {bmi: "adad"},
+              );
+            },
+            calcText: "CALCULATE",
+          ),
         ],
       ),
     );
